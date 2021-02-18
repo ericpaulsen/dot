@@ -9,6 +9,8 @@ s = status
 
 p = pull
 
+c = clone
+
 # list all aliases
 
 aliases = config --get-regexp alias
