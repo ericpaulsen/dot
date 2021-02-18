@@ -1,4 +1,15 @@
 [user]
 
 email = ericpaulsen@coder.com
-name = Eric Paulsen 
+name = Eric Paulsen
+
+[alias]
+
+# list all aliases
+
+aliases = config --get-regexp alias
+
+s = status
+
+p = pull
+
