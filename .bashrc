@@ -1,3 +1,3 @@
-function run yarn (){
+function runyarn (){
 yarn
-};
+}
