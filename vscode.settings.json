@@ -1,0 +1,11 @@
+{
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "sync.autoDownload": false,
+    "sync.gist": "ericsettingssync",
+    "sync.autoUpload": true,
+    "sync.forceUpload": true,
+    "workbench.colorTheme": "One Dark Pro",
+    "workbench.editor.enablePreview": false
+}
