@@ -1,3 +1,21 @@
 {
-    "workbench.colorTheme": "One Dark Pro"
+    "workbench.colorTheme": "One Dark Pro",
+    "oneDarkPro.editorTheme": "ayu",
+    "oneDarkPro.bold": true,
+    "editor.tokenColorCustomizations": {
+        "[One Dark Pro]": {
+            "textMateRules": [
+                {
+                    "name": "js object key",
+                    "scope": "meta.object-literal.key",
+                    "settings": {
+                        "foreground": "#56b6c2"
+                    }
+                }
+            ]
+        }
+    },
+    "workbench.iconTheme": "material-icon-theme",
+    "terminal.integrated.confirmOnExit": true,
+    "terminal.integrated.cursorBlinking": true
 }
