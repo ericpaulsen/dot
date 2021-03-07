@@ -17,5 +17,13 @@
     },
     "workbench.iconTheme": "material-icon-theme",
     "terminal.integrated.confirmOnExit": true,
-    "terminal.integrated.cursorBlinking": true
+    "terminal.integrated.cursorBlinking": true,
+    "workbench.editor.enablePreview": false,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "sync.autoDownload": false,
+    "sync.gist": "ericsettingssync",
+    "sync.autoUpload": true,
+    "sync.forceUpload": true,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false
 }
