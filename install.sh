@@ -9,6 +9,5 @@ then
 else
     cp -rf /home/coder/dotfiles/.local ~/.local
     # Install extensions
-    /opt/coder/code-server/bin/code-server --install-extension yummygum.city-lights-icon-vsc
     /opt/coder/code-server/bin/code-server --install-extension zhuangtongfa.material-theme
 fi
