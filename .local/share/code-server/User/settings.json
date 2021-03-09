@@ -15,8 +15,8 @@
             ]
         }
     },
-    "workbench.iconTheme": "material-icon-theme",
-    "terminal.integrated.confirmOnExit": true,
+    "workbench.iconTheme": "city-lights-icons-vsc-light",
+    "terminal.integrated.confirmOnExit": false,
     "terminal.integrated.cursorBlinking": true,
     "workbench.editor.enablePreview": false,
     "liveServer.settings.donotShowInfoMsg": true,
@@ -25,5 +25,9 @@
     "sync.autoUpload": true,
     "sync.forceUpload": true,
     "explorer.confirmDragAndDrop": false,
-    "explorer.confirmDelete": false
+    "explorer.confirmDelete": false,
+    "git.autofetch": true,
+    "diffEditor.renderSideBySide": false,
+    "workbench.sideBar.location": "left",
+    "terminal.integrated.rendererType": "dom"
 }
