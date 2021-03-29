@@ -1,0 +1,40 @@
+{ 
+    "workbench.colorTheme": "City Lights",
+    "workbench.iconTheme": "city-lights-icons-vsc-light",
+
+    "terminal.integrated.rendererType": "dom",
+    "terminal.integrated.confirmOnExit": false,
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.shell.osx": "/opt/homebrew/bin/fish",
+    "terminal.explorerKind": "external",
+    "terminal.external.osxExec": "iTerm.app",
+
+    "liveServer.settings.donotVerifyTags": true,
+    "liveServer.settings.donotShowInfoMsg": true,
+
+    "markdown-pdf.headerTemplate": "<div style=\"font-size: 9px; font-weight: bold; margin-left: 1cm;\"></div> <div style=\"font-size: 9px; font-weight: bold; margin-left: auto; margin-right: 1cm; \"> <span class='pageNumber'></span> / <span class='totalPages'></span></div>",
+    "markdown-pdf.footerTemplate": "<div style=\"font-size: 9px; font-weight: bold; margin: 0 auto;\">Use, reproduction or disclosure is subject to restrictions set forth in Contract Number 2014-14031000011 and Sub Contract No. Coder Technologies 01.</div>",
+
+    "sync.autoDownload": false,
+    "sync.gist": "ericsettingssync",
+    "sync.autoUpload": true,
+    "sync.forceUpload": true,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "git.autofetch": true,
+    "cSpell.ignoreWords": [
+        "autofetch",
+        "donot",
+        "ericsettingssync",
+        "git",
+        "info",
+        "live",
+        "msg",
+        "server",
+        "settings",
+        "show"
+    ],
+
+    "workbench.editor.enablePreview": false,
+    "diffEditor.renderSideBySide": false
+}
