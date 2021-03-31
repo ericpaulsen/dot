@@ -3,6 +3,10 @@
 email = ericpaulsen@coder.com
 name = Eric Paulsen
 
+[init]
+
+defaultBranch = master
+
 [alias]
 
 s = status
