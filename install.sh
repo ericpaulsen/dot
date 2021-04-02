@@ -24,7 +24,9 @@ if [ ! -f $FISH_BINARY ] ; then
     sudo apt-get install -y fish
     echo "installing fish in $FISH_PATH"
 
-    sudo curl -L https://get.oh-my.fish | fish
+    sudo apt-get update
+    curl -L https://github.com/oh-my-fish/oh-my-fish/raw/master/bin/install > install
+    fish install
     omf install lambda
     echo "installing your Oh My Fish lambda theme"
 
