@@ -32,7 +32,19 @@
         "msg",
         "server",
         "settings",
-        "show"
+        "show",
+        "proxied",
+        "dotfiles",
+        "envproxy",
+        "kubectl",
+        "envagent",
+        "OIDC",
+        "cemanager",
+        "CVMs",
+        "kubernetes",
+        "sysbox",
+        "sbin",
+        "distro"
     ],
 
     "workbench.editor.enablePreview": false,
