@@ -2,8 +2,8 @@
 shopt -s dotglob # include . in *
 shopt -s extglob
 yes | cp -rf ~/dotfiles/!(.git|.|..|.local) ~
-# Set VS Code preferences for the FIRST time
 
+# Set VS Code preferences
 echo "installing extensions..."
 
 if [ -f "settings.json" ] 
@@ -14,6 +14,7 @@ then
     /opt/coder/code-server/bin/code-server --install-extension streetsidesoftware.code-spell-checker
 fi
 
+# Install fish & make it default shell
 echo "install fish shell"
 
 FISH_BINARY=/usr/bin/fish
