@@ -1,4 +1,4 @@
-set fish_greeting "Welcome Mr. Paulsen."
+set fish_greeting "Welcome."
 
 alias h='cd ~'
 alias l='ls -a'
