@@ -25,6 +25,10 @@ if [[ "$DISTRO" == *"$SUB"* ]]; then
     FISH_PATH=$(which fish)
     export PATH=$PATH:FISH_PATH
     sudo chsh -s /usr/sbin/fish $USER
+    git clone https://github.com/oh-my-fish/oh-my-fish
+    cd oh-my-fish/
+    bin/install --offline
+    omf install lambda
 else
     FISH_BINARY=/usr/bin/fish
     FISH_PATH=/usr/bin
