@@ -6,7 +6,7 @@ yes | cp -rf ~/dotfiles/!(.git|.|..|.local) ~
 # Set VS Code preferences
 echo "installing extensions..."
 
-if [ -f "settings.json" ] 
+if [[ -f "settings.json" ]] 
 then
     cp -rf /home/coder/dotfiles/.local ~/.local
     # Install extensions
@@ -19,7 +19,7 @@ echo "install fish shell"
 
 DISTRO=$(egrep '^(NAME)=' /etc/os-release)
 
-if [ $DISTRO =~ "NAME=Arch Linux" ]; then
+if [[ $DISTRO = "NAME=Arch Linux" ]]; then
     yes | sudo pacman -S fish
     FISH_PATH=$(which fish)
     export PATH=$PATH:FISH_PATH
