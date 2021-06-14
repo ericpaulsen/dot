@@ -20,7 +20,7 @@ echo "install fish shell"
 DISTRO=$(egrep '^(NAME)=' /etc/os-release)
 
 if [$DISTRO = "NAME=Arch Linux"]; then
-    sudo pacman -S fish -y
+    yes | sudo pacman -S fish
     FISH_PATH=$(which fish)
     export PATH=$PATH:FISH_PATH
     sudo chsh -s /usr/sbin/fish $USER
