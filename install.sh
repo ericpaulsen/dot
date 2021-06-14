@@ -17,16 +17,25 @@ fi
 # Install fish & make it default shell
 echo "install fish shell"
 
-FISH_BINARY=/usr/bin/fish
-FISH_PATH=/usr/bin
+DISTRO=$(egrep '^(NAME)=' /etc/os-release)
 
-if [ ! -f $FISH_BINARY ] ; then
-    sudo apt-get update
-    sudo apt-get install -y fish
-    echo "installing fish in $FISH_PATH"
+if [$DISTRO = "NAME=Arch Linux"]; then
+    sudo pacman -S fish -y
+    FISH_PATH=$(which fish)
+    export PATH=$PATH:FISH_PATH
+    sudo chsh -s /usr/sbin/fish $USER
 else
-    echo "fish already installed"
+    FISH_BINARY=/usr/bin/fish
+    FISH_PATH=/usr/bin
+
+    if [ ! -f $FISH_BINARY ] ; then
+        sudo apt-get update
+        sudo apt-get install -y fish
+        echo "installing fish in $FISH_PATH"
+    else
+        echo "fish already installed"
+    fi
+    echo "changing shell"
+    sudo chsh -s /usr/bin/fish $USER
 fi
 
-echo "changing shell"
-sudo chsh -s /usr/bin/fish $USER
