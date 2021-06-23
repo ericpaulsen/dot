@@ -10,8 +10,8 @@ if [[ -f "settings.json" ]]
 then
     cp -rf /home/coder/dotfiles/.local ~/.local
     # Install extensions
-    /opt/coder/code-server/bin/code-server --install-extension yummygum.city-lights-theme
-    /opt/coder/code-server/bin/code-server --install-extension streetsidesoftware.code-spell-checker
+    /var/tmp/coder/code-server/bin/code-server --install-extension yummygum.city-lights-theme
+    /var/tmp/coder/code-server/bin/code-server --install-extension streetsidesoftware.code-spell-checker
 fi
 
 # Install fish & make it default shell
