@@ -12,6 +12,7 @@ then
     # Install extensions
     /var/tmp/coder/code-server/bin/code-server --install-extension yummygum.city-lights-theme
     /var/tmp/coder/code-server/bin/code-server --install-extension streetsidesoftware.code-spell-checker
+    /var/tmp/coder/code-server/bin/code-server --install-extension visualstudioexptteam.vscodeintellicode
 fi
 
 # Install fish & make it default shell
