@@ -31,7 +31,7 @@ if [[ "$DISTRO" == *"$SUB"* ]]; then
     bin/install --offline
     omf install lambda
 else
-    FISH_BINARY=/usr/local/bin/fish
+    FISH_BINARY=/usr/bin/fish
     FISH_PATH=/usr/bin
 
     if [ ! -f $FISH_BINARY ] ; then
@@ -42,6 +42,6 @@ else
         echo "fish already installed"
     fi
     echo "changing shell"
-    sudo chsh -s /usr/local/bin/fish $USER
+    sudo chsh -s /usr/bin/fish $USER
 fi
 

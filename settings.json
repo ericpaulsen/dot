@@ -7,7 +7,7 @@
     "terminal.integrated.cursorBlinking": true,
     "terminal.integrated.profiles.osx": {
        "fish": {
-        "path": "/usr/local/bin/fish"
+        "path": "/usr/bin/fish"
        } 
     },
     
