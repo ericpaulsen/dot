@@ -5,7 +5,12 @@
     "terminal.integrated.rendererType": "dom",
     "terminal.integrated.confirmOnExit": false,
     "terminal.integrated.cursorBlinking": true,
-    "terminal.integrated.shell.osx": "/opt/homebrew/bin/fish",
+    "terminal.integrated.profiles.osx": {
+       "fish": {
+        "path": "/usr/local/bin/fish"
+       } 
+    },
+    
     "terminal.explorerKind": "external",
     "terminal.external.osxExec": "iTerm.app",
 
@@ -33,6 +38,7 @@
         "server",
         "settings",
         "show",
+        "devurls",
         "proxied",
         "dotfiles",
         "envproxy",
@@ -48,5 +54,18 @@
     ],
 
     "workbench.editor.enablePreview": false,
-    "diffEditor.renderSideBySide": false
+    "workbench.experimental.useCustomHover":true,
+    "diffEditor.renderSideBySide": false,
+    "cSpell.userWords": [
+        "letsencrypt"
+    ],
+    "terminal.integrated.copyOnSelection": true,
+    "terminal.integrated.fontSize": 14,
+    "redhat.telemetry.enabled": false,
+    "security.workspace.trust.untrustedFiles": "open",
+    "terminal.integrated.cursorStyle": "underline",
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "material-icon-theme.folders.theme": "specific",
+    "editor.wordWrap": "on"
 }
