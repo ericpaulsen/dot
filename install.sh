@@ -21,12 +21,13 @@ echo "installing extensions..."
 
 if [[ -f "settings.json" ]] 
 then
-    pwd
     # Install extensions
     /var/tmp/coder/code-server/bin/code-server --install-extension pkief.material-icon-theme
     /var/tmp/coder/code-server/bin/code-server --install-extension streetsidesoftware.code-spell-checker
     /var/tmp/coder/code-server/bin/code-server --install-extension $HOME/vsix/marnix.tokyo-night-pro-1.1.4.vsix
 fi
+
+cp -f ~/dotfiles/settings.json /home/coder/.local/share/code-server/User/settings.json
 
 # Install fish & make it default shell
 echo "install fish shell"
@@ -47,7 +48,8 @@ else
     FISH_BINARY=/usr/bin/fish
 
     if [ ! -f $FISH_BINARY ] ; then
-        sudo apt-get update
+        sudo apt-add-repository ppa:fish-shell/release-3
+        sudo apt update
         sudo apt-get install -y fish
         echo "installing fish in $FISH_BINARY"
     else
