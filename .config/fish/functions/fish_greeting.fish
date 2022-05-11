@@ -1,0 +1,1 @@
+/Users/eric/repos/personal/dotfiles/.config/envman/fish/functions/theme-pure/functions/fish_greeting.fish

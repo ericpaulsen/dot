@@ -1,5 +1,6 @@
-package config
-package spark
+package https://github.com/dracula/fish
+theme batman
 theme default
 theme lambda
 theme neolambda
+theme rider

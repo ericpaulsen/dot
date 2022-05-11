@@ -1,18 +1,29 @@
 { 
-    "workbench.colorTheme": "City Lights",
-    "workbench.iconTheme": "city-lights-icons-vsc-light",
-
+    "workbench.colorTheme": "Tokyo Night Pro",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorCustomizations": {
+        //"sideBar.foreground": "#f8f8f2",
+    },
     "terminal.integrated.rendererType": "dom",
     "terminal.integrated.confirmOnExit": false,
     "terminal.integrated.cursorBlinking": true,
     "terminal.integrated.profiles.osx": {
        "fish": {
-        "path": "/usr/bin/fish"
+        "path": "/usr/local/bin/fish"
        } 
     },
     
     "terminal.explorerKind": "external",
     "terminal.external.osxExec": "iTerm.app",
+    "[terraform]": {
+        "editor.formatOnSave": true
+    },
+    "terraform.languageServer": {
+          "external": true,
+          "args": [
+            "serve"
+          ]
+    },
 
     "liveServer.settings.donotVerifyTags": true,
     "liveServer.settings.donotShowInfoMsg": true,
@@ -67,5 +78,38 @@
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "material-icon-theme.folders.theme": "specific",
-    "editor.wordWrap": "on"
+    "editor.wordWrap": "on",
+    "editor.renderWhitespace": "all",
+    "remote.SSH.useLocalServer": false,
+    "remote.SSH.remotePlatform": {
+        "coder.node-js": "linux",
+        "coder.react": "linux",
+        "coder.rubyonrails": "linux",
+        "coder.vnc": "linux",
+        "coder.intellij": "linux",
+        "coder.pandas": "linux",
+        "ec2-18-117-255-159.us-east-2.compute.amazonaws.com": "linux",
+        "coder.eric-dogfood": "linux",
+        "coder.team-env": "linux",
+        "coder.eric-test": "linux"
+    },
+    "docker.showStartPage": false,
+    "vs-kubernetes": {
+        "vscode-kubernetes.minikube-path.mac": "/Users/eric/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
+    },
+    "workbench.startupEditor": "none",
+    "bracketPairColorizer.depreciation-notice": false,
+    "workbench.productIconTheme": "bootstrap-product-icons",
+    "github.gitAuthentication": false,
+    "go.toolsManagement.autoUpdate": true,
+    "editor.rulers": [
+        80,
+        120
+    ],
+    "files.exclude": {
+        "**/.git": false
+    },
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+    "security.workspace.trust.enabled": false,
+    "window.zoomLevel": 1
 }
