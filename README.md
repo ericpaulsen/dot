@@ -1,6 +1,6 @@
 # .eric
 
-The `install.sh` script is executed during the [Coder](https://github.com/coder) build to configure my workspace just the way I like it.
+The `install.sh` script is executed by [Coder](https://github.com/coder) to build my workspace just the way I like it.
 
 Key configs:
 
