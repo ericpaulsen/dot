@@ -18,9 +18,6 @@
           ]
     },
 
-    "liveServer.settings.donotVerifyTags": true,
-    "liveServer.settings.donotShowInfoMsg": true,
-
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
     "git.autofetch": true,
@@ -63,9 +60,6 @@
     "editor.wordWrap": "on",
     "editor.renderWhitespace": "all",
     "docker.showStartPage": false,
-    "vs-kubernetes": {
-        "vscode-kubernetes.minikube-path.mac": "/Users/eric/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
-    },
     "workbench.startupEditor": "none",
     "github.gitAuthentication": false,
     "go.toolsManagement.autoUpdate": true,

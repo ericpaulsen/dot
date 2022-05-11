@@ -1,3 +1,5 @@
+set fish_greeting
+
 starship init fish | source
 
 export GOPROXY=direct

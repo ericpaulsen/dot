@@ -4,7 +4,7 @@ shopt -s extglob
 yes | cp -rf ~/dotfiles/!(.git|.|..|.local) ~
 
 # Install kubectl
-brew install kubect
+brew install kubectl
 
 # Install kubecolor
 brew install hidetatz/tap/kubecolor
