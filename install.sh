@@ -31,17 +31,27 @@ if [[ "$DISTRO" == *"$SUB"* ]]; then
     bin/install --offline
     omf install lambda
 else
-    FISH_BINARY=/usr/local/bin/fish
+    FISH_BINARY=/usr/bin/fish
 
     if [ ! -f $FISH_BINARY ] ; then
         sudo apt-get update
         sudo apt-get install -y fish
-        echo "installing fish in $FISH_PATH"
+        echo "installing fish in $FISH_BINARY"
     else
         echo "fish already installed"
     fi
     echo "changing shell"
-    sudo chsh -s /usr/local/bin/fish $USER
+    sudo chsh -s /usr/bin/fish $USER
+    
+    # Install OMF
+    git clone https://github.com/oh-my-fish/oh-my-fish
+    cd oh-my-fish/
+    bin/install --offline
+    omf install neolambda
+
+    # Install Starship
+    curl -sS https://starship.rs/install.sh | sh
+
 fi
 
 # Install kubectl
@@ -61,6 +71,6 @@ sudo apt-get update && sudo apt-get install terraform
 # Install gcloud
 curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-385.0.0-linux-x86_64.tar.gz
 tar -xf google-cloud-cli-385.0.0-linux-x86.tar.gz
-./google-cloud-sdk/install.sh
-./google-cloud-sdk/bin/gcloud init
+dotfiles/./google-cloud-sdk/install.sh
+dotfiles./google-cloud-sdk/bin/gcloud init
 
