@@ -1,1 +1,0 @@
-/Users/eric/repos/personal/dotfiles/.config/envman/fish/functions/theme-pure/functions/_pure_place_iterm2_prompt_mark.fish
