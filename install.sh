@@ -4,7 +4,10 @@ shopt -s extglob
 yes | cp -rf ~/dotfiles/!(.git|.|..|.local) ~
 
 # Install kubectl
-brew install kubectl
+brew install kubect
+
+# Install kubecolor
+brew install hidetatz/tap/kubecolor
 
 # Install kubectx
 sudo git clone https://github.com/ahmetb/kubectx /opt/kubectx
@@ -25,6 +28,9 @@ then
     /var/tmp/coder/code-server/bin/code-server --install-extension pkief.material-icon-theme
     /var/tmp/coder/code-server/bin/code-server --install-extension streetsidesoftware.code-spell-checker
     /var/tmp/coder/code-server/bin/code-server --install-extension $HOME/vsix/marnix.tokyo-night-pro-1.1.4.vsix
+    /var/tmp/coder/code-server/bin/code-server --install-extension HashiCorp.terraform
+    /var/tmp/coder/code-server/bin/code-server --install-extension ms-azuretools.vscode-docker
+
 fi
 
 cp -f ~/dotfiles/settings.json /home/coder/.local/share/code-server/User/settings.json
@@ -59,16 +65,6 @@ else
     sudo chsh -s /usr/bin/fish $USER
 
 fi
-
-# Download the installer to `/tmp`
-curl git.io/pure-fish --output /tmp/pure_installer.fish --location --silent
-# Source and trigger the installer
-source /tmp/pure_installer.fish; and install_pure
-
-# Install OMF
-echo "installing OMF"
-curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
-omf install neolambda
 
 echo "installing starship"
 # Install Starship
