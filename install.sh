@@ -22,11 +22,29 @@ sudo git clone https://github.com/ahmetb/kubectx /opt/kubectx
 sudo ln -s /opt/kubectx/kubectx /usr/local/bin/kubectx
 sudo ln -s /opt/kubectx/kubens /usr/local/bin/kubens
 
-# Install terraform
-echo "installing terraform"
+# Install Terraform
+echo "installing Terraform"
 curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
 sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
 sudo apt-get update && sudo apt-get install terraform
+
+# AWS CLI
+echo "installaing AWS CLI"
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+
+# Install gcloud CLI
+curl https://sdk.cloud.google.com > install.sh
+bash install.sh --disable-prompts
+
+# Install Azure CLI
+sudo tee /etc/apt/trusted.gpg.d/microsoft.gpg > /dev/null
+AZ_REPO=$(lsb_release -cs)
+echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" |
+sudo tee /etc/apt/sources.list.d/azure-cli.list
+sudo apt-get update
+sudo apt-get install azure-cli
 
 # Install starship.rs
 echo "installing starship"
@@ -34,8 +52,9 @@ echo "installing starship"
 sh -c "$(curl -fsSL https://starship.rs/install.sh)" -y -f
 
 # Set VS Code preferences
-echo "installing extensions..."
+cp -f ~/dotfiles/settings.json /home/coder/.local/share/code-server/User/settings.json
 
+echo "installing extensions..."
 if [[ -f "settings.json" ]] 
 then
     # Install extensions
@@ -47,35 +66,11 @@ then
 
 fi
 
-cp -f ~/dotfiles/settings.json /home/coder/.local/share/code-server/User/settings.json
-
 # Install fish & make it default shell
-echo "install fish shell"
+echo "installing fish shell"
+sudo apt-add-repository ppa:fish-shell/release-3
+sudo apt update
+sudo apt-get install -y fish
 
-DISTRO=$(egrep '^(NAME)=' /etc/os-release)
-SUB='Arch'
-
-if [[ "$DISTRO" == *"$SUB"* ]]; then
-    yes | sudo pacman -S fish
-    FISH_PATH=$(which fish)
-    export PATH=$PATH:FISH_PATH
-    sudo chsh -s /usr/sbin/fish $USER
-    git clone https://github.com/oh-my-fish/oh-my-fish
-    cd oh-my-fish/
-    bin/install --offline
-    omf install lambda
-else
-    FISH_BINARY=/usr/bin/fish
-
-    if [ ! -f $FISH_BINARY ] ; then
-        sudo apt-add-repository ppa:fish-shell/release-3
-        sudo apt update
-        sudo apt-get install -y fish
-        echo "installing fish in $FISH_BINARY"
-    else
-        echo "fish already installed"
-    fi
-    echo "changing shell"
-    sudo chsh -s /usr/bin/fish $USER
-
-fi
+echo "changing shell"
+sudo chsh -s /usr/bin/fish $USER
