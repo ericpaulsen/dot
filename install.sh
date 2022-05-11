@@ -12,9 +12,6 @@ echo "installing starship"
 # Install Starship
 sh -c "$(curl -fsSL https://starship.rs/install.sh)" -y -f
 
-# Set VS Code preferences
-cp -f ~/dotfiles/settings.json /home/coder/.local/share/code-server/User/settings.json
-
 echo "installing extensions..."
 if [[ -f "settings.json" ]] 
 then
@@ -26,6 +23,9 @@ then
     /var/tmp/coder/code-server/bin/code-server --install-extension ms-azuretools.vscode-docker
 
 fi
+
+# Set VS Code preferences
+cp -f ~/dotfiles/settings.json /home/coder/.local/share/code-server/User/settings.json
 
 # Install fish & make it default shell
 echo "installing fish shell"
@@ -57,12 +57,6 @@ curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
 sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
 sudo apt-get update && sudo apt-get install terraform
 
-# AWS CLI
-echo "installaing AWS CLI"
-curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-unzip awscliv2.zip
-sudo ./aws/install
-
 # Install gcloud CLI
 curl https://sdk.cloud.google.com > install.sh
 bash install.sh --disable-prompts
@@ -74,3 +68,9 @@ echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO 
 sudo tee /etc/apt/sources.list.d/azure-cli.list
 sudo apt-get update
 sudo apt-get install azure-cli
+
+# AWS CLI
+echo "installaing AWS CLI"
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
