@@ -21,10 +21,11 @@ echo "installing extensions..."
 
 if [[ -f "settings.json" ]] 
 then
+    pwd
     # Install extensions
     /var/tmp/coder/code-server/bin/code-server --install-extension pkief.material-icon-theme
     /var/tmp/coder/code-server/bin/code-server --install-extension streetsidesoftware.code-spell-checker
-    /var/tmp/coder/code-server/bin/code-server --install-extension /vsix/marnix.tokyo-night-pro-1.1.4.vsix
+    /var/tmp/coder/code-server/bin/code-server --install-extension $HOME/vsix/marnix.tokyo-night-pro-1.1.4.vsix
 fi
 
 # Install fish & make it default shell
@@ -56,6 +57,11 @@ else
     sudo chsh -s /usr/bin/fish $USER
 
 fi
+
+# Download the installer to `/tmp`
+curl git.io/pure-fish --output /tmp/pure_installer.fish --location --silent
+# Source and trigger the installer
+source /tmp/pure_installer.fish; and install_pure
 
 # Install OMF
 echo "installing OMF"

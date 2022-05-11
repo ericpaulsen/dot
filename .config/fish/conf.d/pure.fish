@@ -1,0 +1,1 @@
+/Users/eric/repos/personal/dotfiles/.config/fish/functions/theme-pure/conf.d/pure.fish
