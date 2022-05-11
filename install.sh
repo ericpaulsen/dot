@@ -7,6 +7,35 @@ yes | cp -rf ~/dotfiles/!(.git|.|..|.local) ~
 echo "adding GitHub as a known host"
 ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
 
+# Install starship.rs
+echo "installing starship"
+# Install Starship
+sh -c "$(curl -fsSL https://starship.rs/install.sh)" -y -f
+
+# Set VS Code preferences
+cp -f ~/dotfiles/settings.json /home/coder/.local/share/code-server/User/settings.json
+
+echo "installing extensions..."
+if [[ -f "settings.json" ]] 
+then
+    # Install extensions
+    /var/tmp/coder/code-server/bin/code-server --install-extension pkief.material-icon-theme
+    /var/tmp/coder/code-server/bin/code-server --install-extension streetsidesoftware.code-spell-checker
+    /var/tmp/coder/code-server/bin/code-server --install-extension $HOME/vsix/marnix.tokyo-night-pro-1.1.4.vsix
+    /var/tmp/coder/code-server/bin/code-server --install-extension HashiCorp.terraform
+    /var/tmp/coder/code-server/bin/code-server --install-extension ms-azuretools.vscode-docker
+
+fi
+
+# Install fish & make it default shell
+echo "installing fish shell"
+sudo apt-add-repository ppa:fish-shell/release-3
+sudo apt update
+sudo apt-get install -y fish
+
+echo "changing shell"
+sudo chsh -s /usr/bin/fish $USER
+
 # Install kubectl
 echo "installing kubectl"
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
@@ -45,32 +74,3 @@ echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO 
 sudo tee /etc/apt/sources.list.d/azure-cli.list
 sudo apt-get update
 sudo apt-get install azure-cli
-
-# Install starship.rs
-echo "installing starship"
-# Install Starship
-sh -c "$(curl -fsSL https://starship.rs/install.sh)" -y -f
-
-# Set VS Code preferences
-cp -f ~/dotfiles/settings.json /home/coder/.local/share/code-server/User/settings.json
-
-echo "installing extensions..."
-if [[ -f "settings.json" ]] 
-then
-    # Install extensions
-    /var/tmp/coder/code-server/bin/code-server --install-extension pkief.material-icon-theme
-    /var/tmp/coder/code-server/bin/code-server --install-extension streetsidesoftware.code-spell-checker
-    /var/tmp/coder/code-server/bin/code-server --install-extension $HOME/vsix/marnix.tokyo-night-pro-1.1.4.vsix
-    /var/tmp/coder/code-server/bin/code-server --install-extension HashiCorp.terraform
-    /var/tmp/coder/code-server/bin/code-server --install-extension ms-azuretools.vscode-docker
-
-fi
-
-# Install fish & make it default shell
-echo "installing fish shell"
-sudo apt-add-repository ppa:fish-shell/release-3
-sudo apt update
-sudo apt-get install -y fish
-
-echo "changing shell"
-sudo chsh -s /usr/bin/fish $USER
