@@ -58,8 +58,8 @@ sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(l
 sudo apt-get update && sudo apt-get install terraform
 
 # Install gcloud CLI
-curl https://sdk.cloud.google.com > install.sh
-bash install.sh --disable-prompts
+curl https://sdk.cloud.google.com > gcp-install.sh
+bash gcp-install.sh --disable-prompts
 
 # Install Azure CLI
 sudo tee /etc/apt/trusted.gpg.d/microsoft.gpg > /dev/null
