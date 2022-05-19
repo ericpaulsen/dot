@@ -21,7 +21,7 @@ then
     # Install extensions & set VSCode prefs
     /var/tmp/coder/code-server/bin/code-server --install-extension file-icons.file-icons
     /var/tmp/coder/code-server/bin/code-server --install-extension streetsidesoftware.code-spell-checker
-    /var/tmp/coder/code-server/bin/code-server --install-extension antfu.theme-vitesse
+    /var/tmp/coder/code-server/bin/code-server --install-extension $HOME/dotfiles/vsix/antfu.theme-vitesse-0.4.10.vsix
     /var/tmp/coder/code-server/bin/code-server --install-extension HashiCorp.terraform
     /var/tmp/coder/code-server/bin/code-server --install-extension ms-azuretools.vscode-docker
     /var/tmp/coder/code-server/bin/code-server --install-extension golang.Go
