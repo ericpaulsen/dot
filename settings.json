@@ -1,9 +1,10 @@
 { 
-    "workbench.colorTheme": "Tokyo Night Pro",
-    "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorCustomizations": {
-        //"sideBar.foreground": "#f8f8f2",
-    },
+    "workbench.colorTheme": "Vitesse Dark Soft",
+    "workbench.iconTheme": "file-icons",
+    "editor.fontFamily": "'Input'",
+    "editor.fontLigatures": true,
+    "editor.fontWeight": "500",
+    "workbench.sideBar.location": "right",
     "terminal.integrated.confirmOnExit": "never",
     "terminal.integrated.cursorBlinking": true,
     "terminal.integrated.defaultProfile.linux": "fish",
@@ -56,7 +57,6 @@
     "terminal.integrated.fontSize": 14,
     "terminal.integrated.cursorStyle": "underline",
     "editor.suggestSelection": "first",
-    "material-icon-theme.folders.theme": "specific",
     "editor.wordWrap": "on",
     "editor.renderWhitespace": "all",
     "docker.showStartPage": false,

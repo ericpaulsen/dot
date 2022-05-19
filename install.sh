@@ -12,20 +12,21 @@ echo "installing starship"
 # Install Starship
 sh -c "$(curl -fsSL https://starship.rs/install.sh)" -y -f
 
+# Install fonts
+cp ~/dotfiles/fonts /usr/share/fonts
+
 echo "installing extensions..."
 if [[ -f "settings.json" ]] 
 then
-    # Install extensions
-    /var/tmp/coder/code-server/bin/code-server --install-extension pkief.material-icon-theme
+    # Install extensions & set VSCode prefs
+    /var/tmp/coder/code-server/bin/code-server --install-extension file-icons.file-icons
     /var/tmp/coder/code-server/bin/code-server --install-extension streetsidesoftware.code-spell-checker
-    /var/tmp/coder/code-server/bin/code-server --install-extension $HOME/vsix/marnix.tokyo-night-pro-1.1.4.vsix
+    /var/tmp/coder/code-server/bin/code-server --install-extension antfu.theme-vitesse
     /var/tmp/coder/code-server/bin/code-server --install-extension HashiCorp.terraform
     /var/tmp/coder/code-server/bin/code-server --install-extension ms-azuretools.vscode-docker
-
+    /var/tmp/coder/code-server/bin/code-server --install-extension golang.Go
+    cp -f ~/dotfiles/settings.json /home/coder/.local/share/code-server/User/settings.json
 fi
-
-# Set VS Code preferences
-cp -f ~/dotfiles/settings.json /home/coder/.local/share/code-server/User/settings.json
 
 # Install fish & make it default shell
 echo "installing fish shell"
@@ -41,9 +42,26 @@ echo "installing kubectl"
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 
+# Install eksctl
+curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+sudo mv /tmp/eksctl /usr/local/bin
+
 # Install kubecolor
-echo "installing kubecolor"
-go install github.com/dty1er/kubecolor/cmd/kubecolor@latest
+if type go; then
+    echo "installing kubecolor..."
+    go install github.com/dty1er/kubecolor/cmd/kubecolor@latest
+else
+    echo "go not present, installing now..."
+    curl -L "https://dl.google.com/go/go1.18.2.linux-amd64.tar.gz" | tar -C /usr/local -xzvf -
+    ENV GOROOT /usr/local/go
+    ENV PATH $PATH:$GOROOT/bin
+    ENV GOPATH /home/coder/go
+    ENV GOBIN $GOPATH/bin
+    ENV PATH $PATH:$GOBIN
+    
+    echo "installing kubecolor"
+    go install github.com/dty1er/kubecolor/cmd/kubecolor@latest
+fi
 
 # Install kubectx
 echo "installing kubectx"
