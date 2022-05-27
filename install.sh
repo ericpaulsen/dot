@@ -3,11 +3,6 @@ shopt -s dotglob # include . in *
 shopt -s extglob
 yes | cp -rf ~/dotfiles/!(.git|.|..|.local) ~
 
-# /etc/resolv.conf test
-echo "testing resolv.conf copy perms..."
-sed '/nameserver/cnameserver 128.XX.XX.XX' /etc/resolv.conf > /tmp/resolv.conf
-sudo cp /tmp/resolv.conf /etc/resolv.conf
-
 # Add GitHub as a known host
 echo "adding GitHub as a known host"
 ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
@@ -57,7 +52,7 @@ if type go; then
     go install github.com/dty1er/kubecolor/cmd/kubecolor@latest
 else
     echo "go not present, installing now..."
-    sudo curl -L "https://dl.google.com/go/go1.18.2.linux-amd64.tar.gz" | tar -C /usr/local -xzvf -
+    curl -L "https://dl.google.com/go/go1.18.2.linux-amd64.tar.gz" | tar -C /usr/local -xzvf -
     ENV GOROOT /usr/local/go
     ENV PATH $PATH:$GOROOT/bin
     ENV GOPATH /home/coder/go
