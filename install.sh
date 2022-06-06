@@ -69,6 +69,15 @@ sudo git clone https://github.com/ahmetb/kubectx /opt/kubectx
 sudo ln -s /opt/kubectx/kubectx /usr/local/bin/kubectx
 sudo ln -s /opt/kubectx/kubens /usr/local/bin/kubens
 
+# Install docker-compose
+if type docker-compose; then
+    echo "docker-compose already installed..."
+else
+    echo "installing docker-compose"
+    sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    sudo chmod +x /usr/local/bin/docker-compose
+    
+
 # Install Terraform
 echo "installing Terraform"
 curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
