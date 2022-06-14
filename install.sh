@@ -39,7 +39,7 @@ sudo chsh -s /usr/bin/fish $USER
 
 # Rename Coder v1 binary
 echo "renaming Coder v1 binary"
-sudo mv /usr/local/bin/coder /usr/local/bin/coder1
+sudo mv /var/tmp/coder/coder-cli/coder /usr/local/bin/coder1
 
 # Install Coder
 curl -L https://coder.com/install.sh | sh
@@ -58,15 +58,11 @@ sudo mv /tmp/eksctl /usr/local/bin
 if type go; then
     echo "installing kubecolor..."
     go install github.com/dty1er/kubecolor/cmd/kubecolor@latest
-    set PATH $PATH:$GOROOT/bin
+    set PATH /usr/local/go/bin $PATH
 else
     echo "go not present, installing now..."
     curl -L "https://dl.google.com/go/go1.18.2.linux-amd64.tar.gz" | sudo tar -C /usr/local -xzvf -
-    set GOROOT /usr/local/go
-    set PATH $PATH:$GOROOT/bin
-    set GOPATH /home/coder/go
-    set GOBIN $GOPATH/bin
-    set PATH $PATH:$GOBIN
+     set PATH /usr/local/go/bin $PATH
     
     echo "installing kubecolor"
     go install github.com/dty1er/kubecolor/cmd/kubecolor@latest
