@@ -39,7 +39,7 @@ sudo chsh -s /usr/bin/fish $USER
 
 # Rename Coder v1 binary
 echo "renaming Coder v1 binary"
-mv /usr/local/bin/coder /usr/local/bin/coder1
+sudo mv /usr/local/bin/coder /usr/local/bin/coder1
 
 # Install Coder
 curl -L https://coder.com/install.sh | sh
@@ -58,6 +58,7 @@ sudo mv /tmp/eksctl /usr/local/bin
 if type go; then
     echo "installing kubecolor..."
     go install github.com/dty1er/kubecolor/cmd/kubecolor@latest
+    set PATH $PATH:$GOROOT/bin
 else
     echo "go not present, installing now..."
     curl -L "https://dl.google.com/go/go1.18.2.linux-amd64.tar.gz" | sudo tar -C /usr/local -xzvf -
@@ -86,14 +87,6 @@ sudo apt-get update && sudo apt-get install terraform
 # Install gcloud CLI
 curl https://sdk.cloud.google.com > gcp-install.sh
 bash gcp-install.sh --disable-prompts
-
-# Install Azure CLI
-sudo tee /etc/apt/trusted.gpg.d/microsoft.gpg > /dev/null
-AZ_REPO=$(lsb_release -cs)
-echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" |
-sudo tee /etc/apt/sources.list.d/azure-cli.list
-sudo apt-get update
-sudo apt-get install azure-cli
 
 # AWS CLI
 echo "installaing AWS CLI"
