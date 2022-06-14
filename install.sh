@@ -37,6 +37,21 @@ sudo apt-get install -y fish
 echo "changing shell"
 sudo chsh -s /usr/bin/fish $USER
 
+echo "adding ~/go/bin to path"
+set -gx PATH ~/go/bin/ $PATH
+
+# Rename Coder v1 binary
+if type coder; then
+    echo "renaming Coder v1 binary"
+    mv /usr/local/bin/coder /usr/local/bin/coder1
+else
+    echo "Coder not present"
+fi
+
+# Install Coder
+curl -L https://coder.com/install.sh | sh
+mv /usr/bin/coder /usr/local/bin
+
 # Install kubectl
 echo "installing kubectl"
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
