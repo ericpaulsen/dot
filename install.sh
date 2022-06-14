@@ -37,20 +37,13 @@ sudo apt-get install -y fish
 echo "changing shell"
 sudo chsh -s /usr/bin/fish $USER
 
-echo "adding ~/go/bin to path"
-set -gx PATH ~/go/bin/ $PATH
-
 # Rename Coder v1 binary
-if type coder; then
-    echo "renaming Coder v1 binary"
-    mv /usr/local/bin/coder /usr/local/bin/coder1
-else
-    echo "Coder not present"
-fi
+echo "renaming Coder v1 binary"
+mv /usr/local/bin/coder /usr/local/bin/coder1
 
 # Install Coder
 curl -L https://coder.com/install.sh | sh
-mv /usr/bin/coder /usr/local/bin
+sudo mv /usr/bin/coder /usr/local/bin
 
 # Install kubectl
 echo "installing kubectl"
@@ -67,12 +60,12 @@ if type go; then
     go install github.com/dty1er/kubecolor/cmd/kubecolor@latest
 else
     echo "go not present, installing now..."
-    curl -L "https://dl.google.com/go/go1.18.2.linux-amd64.tar.gz" | tar -C /usr/local -xzvf -
-    ENV GOROOT /usr/local/go
-    ENV PATH $PATH:$GOROOT/bin
-    ENV GOPATH /home/coder/go
-    ENV GOBIN $GOPATH/bin
-    ENV PATH $PATH:$GOBIN
+    curl -L "https://dl.google.com/go/go1.18.2.linux-amd64.tar.gz" | sudo tar -C /usr/local -xzvf -
+    set GOROOT /usr/local/go
+    set PATH $PATH:$GOROOT/bin
+    set GOPATH /home/coder/go
+    set GOBIN $GOPATH/bin
+    set PATH $PATH:$GOBIN
     
     echo "installing kubecolor"
     go install github.com/dty1er/kubecolor/cmd/kubecolor@latest
