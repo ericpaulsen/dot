@@ -1,4 +1,6 @@
-# copy dotfiles into ~
+#!/bin/bash
+
+# copy dotfiles into ~/
 shopt -s dotglob # include . in *
 shopt -s extglob
 yes | cp -rf ~/dotfiles/!(.git|.|..|.local) ~
